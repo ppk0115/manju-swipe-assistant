@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">漫剧上滑助手</string>
+    <string name="service_name">漫剧上滑助手无障碍服务</string>
+    <string name="about_app">关于%1$s</string>
+    <string name="service_description">仅在你选择的应用中读取界面文字和控件结构。广告循环模式读到独立“广告”标记或确认红果短剧直播推广结构后尝试上滑，每次手势完成至少 1 秒后重新检查，连续 3 次完整读取没有广告标记后停止。也可切换到提示文字或控件学习方案。不截图。</string>
+    <string name="ad_loop_title">广告处理方式</string>
+    <string name="ad_loop_switch">广告标记循环上滑</string>
+    <string name="ad_loop_help">默认开启，对默认方案生效，支持横屏与竖屏。读到独立“广告”标记就上滑；手势结束至少 1 秒后重新完整检查，仍有广告则继续。倒计时期间也会尝试。红果短剧另支持直播推广结构：同一窗口两次完整读取、相隔至少 1 秒确认后才上滑；空文字、“领取”或“立即领取”不能单独触发。\n\n首次未读到广告就暂停手势；连续 3 次完整检查均无广告后停止本轮，正常视频没有文字也可以完成确认。切出应用、窗口被遮挡或节点读取不完整时暂停，不累计消失次数。\n\n单轮最多有效检测 90 秒或尝试 60 次；暂停及长时间检测中断不计入时间预算。达到上限后可手动暂停再恢复。标记消失不代表已确认回到剧集。\n\n启用时自定义文字暂停；关闭后恢复原提示模式及 15 秒间隔。控件学习方案保持独立。OCR 已移除。</string>
+    <string name="target_count">目标应用 · %1$d</string>
+    <string name="candidate_count">发现应用 · %1$d</string>
+    <string name="runtime_details">最近检测记录\n%1$s\n%2$s\n\n最近自动上滑\n%3$s\n%4$s</string>
+    <string name="live_detection_details">当前窗口检查\n%1$s\n\n最近目标文字读取\n%2$s\n\n检查提示\n广告循环依据可见节点的独立“广告”标记，或连续两次确认的红果短剧直播推广结构尝试上滑；空文字及领取字样不单独触发。完成至少 1 秒后再完整检查。首次无广告即暂停手势，连续 3 次完整确认后停止本轮，允许页面没有文字。节点读取不完整或窗口不可操作时不累计；暂停及长时间检测中断不计入 90 秒预算。标记消失不等同于已确认回到剧集。打开助手查看状态时目标暂停属于正常现象；复现时请收起助手小窗并全屏播放。</string>
+    <string name="target_read_summary">%1$s · %2$s · %3$s\n节点 %4$d · 文字 %5$d 字符 · %6$s\n%7$s</string>
+    <string name="combined_runtime_details">%1$s\n\n%2$s</string>
+    <string name="learning_step_normal">学习：第一步\n先打开正常视频</string>
+    <string name="learning_step_ad">学习：第二步\n等待广告出现</string>
+    <string name="learning_step_ready">学习：第三步\n等同一广告可划走</string>
+    <string name="app_with_applicability">%1$s%2$s</string>
+    <string name="learning_progress">%1$d / 3 · %2$s</string>
+    <string name="learning_retry_hint">%1$s。可重录上一步。</string>
+    <string name="author_douyin_id">91222628056</string>
+</resources>
