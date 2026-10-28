@@ -8,6 +8,8 @@ Android 本地无障碍辅助工具。在指定应用前台识别广告标记或
 
 源码采用 [MIT 许可证](LICENSE)，原作者为点点PPK。允许商用、修改及分发；分发时必须保留“点点PPK”的版权声明及完整许可声明。
 
+原项目地址：[ppk0115/manju-swipe-assistant](https://github.com/ppk0115/manju-swipe-assistant)。版权声明中包含原作者与该仓库地址；MIT 不要求在衍生 App 的界面展示署名或链接。
+
 ## 安装包
 
 前往 [GitHub Releases](https://github.com/ppk0115/manju-swipe-assistant/releases) 下载：
