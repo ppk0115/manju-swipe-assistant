@@ -252,6 +252,14 @@ class MainActivity : Activity() {
         }
         statusCard.addView(serviceButton, spacedParams(12))
         addView(statusCard, spacedParams(16))
+
+        val backgroundCard = card()
+        backgroundCard.addView(sectionTitle("后台运行设置"))
+        backgroundCard.addView(text("请允许后台运行，电池策略设为“无限制”", 17f, true), spacedParams(8))
+        backgroundCard.addView(mutedText("进入系统应用信息，找到“电池”或“耗电管理”，选择“无限制 / 不限制”，避免助手在后台停止检测。部分手机还需允许自启动或在最近任务中锁定助手。", 14f), spacedParams(6))
+        backgroundCard.addView(secondaryButton("去设置后台运行") { openBackgroundSettings() }, spacedParams(12))
+        backgroundCard.addView(mutedText("不同手机的设置名称可能不同，请进入后手动确认。允许后台运行可能增加耗电。", 12f), spacedParams(8))
+        addView(backgroundCard, spacedParams(12))
         addView(hero, spacedParams(12))
 
         val targetCard = card()
@@ -277,11 +285,14 @@ class MainActivity : Activity() {
         issuesCard.addView(secondaryButton("处理最近的问题") { resolveRecentIssue() }, spacedParams(8))
         addView(issuesCard, spacedParams(16))
 
-        addView(column().apply {
-            setPadding(dp(4), dp(8), dp(4), 0)
-            addView(text("后台运行帮助", 15f, true).apply { setTextColor(color(R.color.warning_text)) })
-            addView(mutedText("部分手机需要允许后台运行或在最近任务中锁定“${getString(R.string.app_name)}”。若停止工作，请先检查服务连接状态。", 14f), spacedParams(4))
-        }, spacedParams(16))
+    }
+
+    private fun openBackgroundSettings() {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            android.net.Uri.parse("package:$packageName"))
+        runCatching { startActivity(intent) }.onFailure {
+            toast("无法打开应用信息，请在系统设置中找到本应用，允许后台运行并将电池策略设为无限制。")
+        }
     }
 
     private fun buildApplications(): LinearLayout = page("应用", "只在你选中的应用里，帮你上滑。").apply {
@@ -1030,8 +1041,7 @@ class MainActivity : Activity() {
             when (readiness.action) {
                 AppReadiness.Action.ENABLE -> automationSwitch.isChecked = true
                 AppReadiness.Action.TARGETS -> selectPage(1)
-                AppReadiness.Action.BATTERY -> startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    android.net.Uri.parse("package:$packageName")))
+                AppReadiness.Action.BATTERY -> openBackgroundSettings()
                 else -> startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
             }
         }

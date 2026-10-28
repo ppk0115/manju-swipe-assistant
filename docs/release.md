@@ -1,6 +1,6 @@
 # Release 构建与签名
 
-当前版本：0.5.9，versionCode 28，包名 `com.example.autoswipeassistant`。
+当前版本：0.5.10，versionCode 29，包名 `com.example.autoswipeassistant`。
 
 ## 准备自己的签名
 
